@@ -1,0 +1,91 @@
+<div class="container myContainer">
+    <div class="page-header text-center myHeader">
+        <h1>NYC Scraper</h1>
+        <form action="/kill/{{{this.headline}}}?_method=GET" method="GET">
+            <input type="hidden" name="headline" value={{this.headline}}>
+            <input type="hidden" name="image" value={{this.image}}>
+            <input type="hidden" name="link" value={{this.link}}>
+            <button id="savedBtn" type="submit">Saved Acticles</button>
+        </form>
+        <form action="/scrape/{{{this.headline}}}?_method=GET" method="GET">
+            <input type="hidden" name="headline" value={{this.headline}}>
+            <input type="hidden" name="image" value={{this.image}}>
+            <input type="hidden" name="link" value={{this.link}}>
+            <button id="scrapeBtn" type="submit">Scrape</button>
+        </form>
+    </div>
+    <div id="scrapeJumbo" class="jumbotron myJumbotron">
+        <h2>Scraped Articles</h2>
+        <ul>
+            {{#each newNews}}
+            <li>
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-4"><img src={{this.image}}></div>
+                            <div class="col-xs-4">{{this.headline}}</div>
+                            <div class="col-xs-4 text-right">
+                                <form action="/scrape/{{this.headline}}?_method=PUT" method="POST">
+                                    <input type="hidden" name="headline" value={{this.headline}}>
+                                    <input type="hidden" name="image" value={{this.image}}>
+                                    <input type="hidden" name="link" value={{this.link}}>
+                                    <button id="saveArticleButton" type="submit">save article</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            {{/each}}
+        </ul>        
+    </div>
+
+    <div id="savedJumbo" class="jumbotron myJumbotron">
+        <h2>Saved Articles</h2>
+       
+
+        <ul>
+            {{#savedNews}}
+            <li>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-4"><img class="img-fluid" src={{this.image}}></div>
+                            <div class="col-xs-4">{{this.headline}}</div>
+                            <div class="col-xs-4 text-right">
+                                <form action="/kill/{{{this.id}}}?_method=PUT" method="POST">
+                                    <input type="hidden" name="headline" value={{this.headline}}>
+                                    <input type="hidden" name="image" value={{this.image}}>
+                                    <input type="hidden" name="link" value={{this.link}}>
+                                    <button type="submit">delete article</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row justify-content-end">
+                        <div class="col-xs-12">
+                        <form id="noteForm" action="/notes/{{{this.id}}}?_method=PUT" method="POST">
+                                    <input id="noteTxt" name="noteTxt" placeholder="  add notes here">                                    
+                                    <button id="addNote" type="submit">add note</button> 
+                                </form>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div>Notes:</div>
+                        <ul>
+                            {{#each note}}
+                            <li>
+                            <form action="/nonote/{{{this._id}}}/{{{this.parentId}}}?_method=PUT" method="POST">
+                             - {{this.info}}
+                              <button type="submit">delete note</button>
+                            </form>                           
+                            </li>
+                            {{/each}}
+                            </ul>
+                    </div>
+                </div>
+            </li>
+            {{/savedNews}}           
+        </ul>
+    </div>
+</div>

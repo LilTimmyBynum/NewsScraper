@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Bootstrap CDN-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Bubblegum+Sans|Nixie+One" rel="stylesheet">
+    <title>NYC Mongo Scraper</title>
+  </head>
+
+  <style>
+
+  body {
+	background: #994D80;
+  font-family: 'Bubblegum Sans', cursive;	
+}
+
+h2 {
+  margin-top: 10px;
+
+}
+
+h1 {
+  padding: 5px;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+  border-radius: 5px;
+}
+ul {
+	list-style-type: none;
+  padding-left: 0px; 
+}
+
+button {
+  margin: 2px;
+  border-radius: 5px;
+}
+
+.panel {
+  background: linear-gradient(45deg, #FFBFD9, #994D80);
+  box-shadow: 0 0 30px black;
+}
+
+.myHeader {
+  background-color: #FFBFD9;
+  border-radius: 5px;
+}
+
+.myJumbotron {
+  padding: 20px;
+}
+
+#noteForm {
+  margin-top: 5px;
+}
+
+#noteTxt {
+  width: 100%;
+  border-radius: 5px;
+}
+
+  </style>
+  
+  <body>
+    {{{ body }}}
+  </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+
+
+  $("#savedBtn").on('click', function() {
+   $("#savedJumbo").show();
+   $("#scrapeJumbo").hide();
+  });
+
+
+
+  $("#saveArticleButton").on('click', function() {
+    console.log("........button clicked !!!!!!!!!!");
+  	this.hide();
+  });
+
+
+  </script>
+</html>

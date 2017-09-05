@@ -1,0 +1,22 @@
+body {
+	background: #FF69B4;
+	
+}
+
+img {
+	max-width: 200px;
+	max-height: 200px;
+
+}
+
+ul {
+	list-style-type: none; 
+
+}
+
+.panel-success {
+	box-shadow: 0 0 30px black;
+}
+.myHeader {
+	background: linear-gradient(45deg, purple, pink);
+}	
